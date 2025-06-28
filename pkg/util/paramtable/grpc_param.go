@@ -149,6 +149,7 @@ type GrpcServerConfig struct {
 	ServerMaxRecvSize ParamItem `refreshable:"false"`
 
 	GracefulStopTimeout ParamItem `refreshable:"true"`
+	WorkPoolSize        ParamItem `refreshable:"true"`
 }
 
 func (p *GrpcServerConfig) Init(domain string, base *BaseTable) {

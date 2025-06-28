@@ -20,6 +20,7 @@ import (
 	"sync"
 
 	"github.com/milvus-io/milvus/pkg/v2/util/conc"
+	"github.com/milvus-io/milvus/pkg/v2/util/paramtable"
 )
 
 var (
@@ -28,9 +29,13 @@ var (
 )
 
 func initExecPool() {
+	// execPool = conc.NewPool[any](
+	// 	128,
+	// 	conc.WithPreAlloc(true),
+	// )
 	execPool = conc.NewPool[any](
-		128,
-		conc.WithPreAlloc(true),
+		paramtable.Get().StreamingNodeGrpcServerCfg.WorkPoolSize.GetAsInt(),
+		conc.WithNonBlocking(false),
 	)
 }
 

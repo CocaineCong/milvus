@@ -1204,6 +1204,7 @@ streamingNode:
     serverMaxRecvSize: 268435456 # The maximum size of each RPC request that the streamingNode can receive, unit: byte
     clientMaxSendSize: 268435456 # The maximum size of each RPC request that the clients on streamingNode can send, unit: byte
     clientMaxRecvSize: 268435456 # The maximum size of each RPC request that the clients on streamingNode can receive, unit: byte
+  workPoolSize: 128 # the work pool size of streamingNode
 
 # Any configuration related to the streaming service.
 streaming:
